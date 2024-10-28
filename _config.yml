@@ -1,0 +1,137 @@
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that.
+# If you find yourself editing this file very often,
+# consider using Jekyll's data files feature for the data you need to update frequently.
+
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'.
+# If you change this file, please restart the server process.
+
+############################
+# --- Site settings ------ #
+############################
+
+# These are used to personalize your new site.
+# If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like,
+# and they will be accessible in the templates via {{ site.myvariable }}.
+url: ""
+
+# If you want to install this Jekyll site in a subpath (e.g. /digitalgarden), set it here.
+# Else keep it empty (*DO NOT* insert /)
+baseurl: ""
+
+############################
+# --- Required options --- #
+############################
+
+# Website header, description, footer, year, and text.
+# If you are deleting this, make sure you remove it from related HTML files too.
+heading: Obsidian Notes On GitHub Pages
+content: A digital garden for my notes, thoughts, and ideas from an Obsidian vault using the Jekyll Garden theme.
+copyright:
+  year: © 2024
+  msg: Contents under CC-BY-NC-ND & MIT License
+
+############################
+# --- Optional options --- #
+############################
+
+# Set title and content for private & broken link tooltip
+privatelinks:
+  title: Private or broken link
+  msg: The page you're looking for is either not available or private!
+
+# Theme level preferences
+# To enable set "enabled: true" or "enabled: false"
+preferences:
+  search:
+    enabled: true  # Enables search functionality on the site.
+  wiki_style_link:
+    enabled: true  # Enables wiki-style links for easier navigation.
+  pagepreview:
+    enabled: true  # Enables page previews.
+  backlinks:
+    enabled: true  # Enables backlinks to show related content.
+  # To enable a custom homepage
+  # If set to true, add content to _includes/Homepage.html
+  # If disabled, the notes feed will be used as the homepage.
+  homepage:
+    enabled: true
+
+# Character encoding for the site
+encoding: "utf-8"
+
+# Build settings
+theme: null  # Specify the theme to be used for the site.
+plugins:
+  - jekyll-feed  # Generates an Atom feed for the site.
+  - jekyll-sitemap  # Creates a sitemap for the site.
+  - jekyll-tidy  # Cleans up the generated HTML.
+
+# Enable Collections
+# Collections are a way to group related content.
+collections:
+  notes:
+    output: true  # Outputs notes collection as standalone pages.
+    permalink: /note/:title  # Defines the URL structure for notes.
+  posts:
+    output: true  # Outputs posts collection as standalone pages.
+    permalink: /post/:title  # Defines the URL structure for posts.
+
+# Markdown settings
+markdown: kramdown
+
+# Kramdown settings
+kramdown:
+  math_engine: katex  # Use KaTeX for rendering math.
+  smart_quotes: lsquo,rsquo,ldquo,rdquo  # Converts quotes to smart quotes.
+  show_warnings: true  # Shows warnings during Kramdown processing.
+
+# Sass settings
+sass:
+  style: compressed  # Compresses the CSS output.
+
+# Default settings for collections
+defaults:
+  - scope:
+      path: ""
+      type: notes
+    values:
+      layout: Post
+      permalink: /note/:title
+      content-type: notes
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - SECURITY.md
+  - "*.py"
+  - "*.sample"
+  - markdown_files.txt
+  - docs/
+  - Dockerfile
+  - docker-compose.yml
+  - debug.yml
+  - "**/private/*"
+  - "**/Private/*"
+  - .sass-cache
+  - .jekyll-cache
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - "**/.space/*"
+  - "**/.obsidian/*"
+  - "**/.makemd/*"
+  - "**/.trash/*"

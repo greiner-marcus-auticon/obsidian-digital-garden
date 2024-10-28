@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    versioning-strategy: "lockfile-only"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    reviewers:
+      - "velotist"
+
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    reviewers:
+      - "velotist"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    reviewers:
+      - "velotist"

@@ -1,0 +1,14 @@
+li {
+    border-bottom: 1px solid var(--color-border-light);
+    list-style: none;
+    padding: 0.4rem 0 0.4rem 0;
+}
+
+.content ul {
+    padding-left: 0px;
+}
+
+h3 {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+}

@@ -1,0 +1,49 @@
+<!--Notes Feed-->
+<!--Static Page: pages/notes.md-->
+
+{%- if page.feedformat == "card" -%}
+    {%- if site.preferences.search.enabled -%}
+        <!-- search bar -->
+        <div class="block">
+            <input class="input is-medium" type="text" placeholder="Search for notes..." id="search-input" autocomplete="off">
+            <div id="search-results" class="search-results"></div>
+        </div>
+        <script src="{{ site.baseurl }}/assets/js/vendor/lunr.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/js/search.js"></script>
+    {%- endif -%}
+    <div class="related-wrapper">
+    {% assign note_items = site.notes | sort: "date" | reverse %}
+    {% for note_item in note_items %}
+        {%- if note_item.feed == "show" -%}
+                <div class="notelist-feed">
+                    <a href="{{ site.baseurl }}{{note_item.url}}">
+                        <h6>{{ note_item.title }}</h6>
+                        <p class="excerpt">
+                            {{ note_item.content | strip_html | strip | remove: "[[" | remove: "]]" | remove: "-" | escape | truncate: 200 }}
+                        </p>
+                    </a>
+                </div>
+        {%- endif -%}
+    {%- endfor -%}
+    </div>
+{%-endif -%}
+
+<!--Dynamic List Feed-->
+<!--Static Page: pages/lists.md-->
+
+{%- if page.feedformat == "row" -%}
+    <div class="block">
+    {% assign list_note_items = site.notes | sort: "date" | reverse %}
+    {% for note_item in list_note_items %}
+        {%- if note_item.format == "list" -%}
+            <div class="list-feed">
+                    <a href="{{ site.baseurl }}{{note_item.url}}" class="custom-link">
+                        <div class="writinglist-title">
+                            {{note_item.title }}
+                        </div>
+                    </a>
+            </div>
+        {%-endif -%}
+    {%- endfor -%}
+    </div>
+{%-endif -%}
