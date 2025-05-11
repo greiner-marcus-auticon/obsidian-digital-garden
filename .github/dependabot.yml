@@ -9,7 +9,7 @@ updates:
       prefix: "chore"
       include: "scope"
     reviewers:
-      - "velotist"
+      - "greiner-marcus-auticon"
 
   - package-ecosystem: "docker"
     directory: "/"
@@ -19,7 +19,7 @@ updates:
       prefix: "chore"
       include: "scope"
     reviewers:
-      - "velotist"
+      - "greiner-marcus-auticon"
 
   - package-ecosystem: "github-actions"
     directory: "/"
